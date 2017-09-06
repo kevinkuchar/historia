@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import sceneReducer from './scene'
+import scenes from './scene'
 
 const reducers = combineReducers({
-    sceneReducer
+    scenes
 });
 
 

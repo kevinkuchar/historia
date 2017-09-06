@@ -1,3 +1,7 @@
+// export interface State {
+//     scenes: Scene[]
+// }
+
 export interface Position {
     left: number;
     right: number;
@@ -16,6 +20,12 @@ export interface Frame {
 }
 
 export interface Scene {
+    id: number
     background: string;
     frames: Frame[]
+}
+
+export interface SceneAction {
+    type: string,
+    scene: Scene 
 }

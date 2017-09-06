@@ -1,14 +1,13 @@
-import { Scene } from '../types/types'
+import { Scene, SceneAction } from '../types'
+import * as types from '../constants/ActionTypes'
 
-const ADD_SCENE: string = 'ADD_SCENE'
-
-const sceneReducer = (state: Scene[] = [], action: any) => {
+const scenes = (state: Scene[] = [], action: SceneAction) => {
     switch (action.type) {
-        case ADD_SCENE:
-            return state.concat([action.payload])
+        case types.ADD_SCENE:
+            return state.concat([action.scene])
         default:
             return state
     }
 }
   
-export default sceneReducer
+export default scenes
