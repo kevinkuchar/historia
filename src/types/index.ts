@@ -1,18 +1,15 @@
+export interface RootState {
+    scenes: Scene[]
+}
+
 export interface Scene {
     id: number
     background: string;
-    frames: Frame[]
+    frames: Frame[],
+    isActive: boolean
 }
 
-export interface Frame {
-    molecules: Molecule[]
-}
-
-export interface Molecule {
-    position: Position;
-    animation: string;
-    text: string
-}
+export interface Frame { }
 
 export interface SceneAction {
     type: string,
