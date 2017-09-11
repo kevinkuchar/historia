@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
-import SceneContainer from './containers/SceneContainer';
+import StoryBox from './containers/StoryBox';
 
 import { initState } from './data'
 
@@ -13,7 +13,7 @@ initState(store)
 
 ReactDOM.render(
     <Provider store={store}>
-      <SceneContainer />
+      <StoryBox />
     </Provider>,
     document.getElementById("app")
 );
