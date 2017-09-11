@@ -5,17 +5,16 @@ let scene1: Scene = {
     "id": 1,
     "background": "Test One life",
     "frames": [],
-    "isActive": false
+    "isActive": true
 }
 
 let scene2: Scene = {
     "id": 2,
     "background": "This is the background",
     "frames": [],
-    "isActive": true
+    "isActive": false
 }
 
 export function initState(store: any) {
-    store.dispatch(addToScenes(scene1));
-    store.dispatch(addToScenes(scene2));
+    store.dispatch(addToScenes([scene1, scene2]));
 }

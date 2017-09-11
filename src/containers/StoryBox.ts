@@ -1,17 +1,18 @@
 import { connect } from 'react-redux'
+import { bindActionCreators, Dispatch } from 'redux'
 import { RootState, Scene } from '../types'
 import Story from '../components/Story'
+import { skipToNextScene } from '../actions'
+import { SceneAction } from '../types'
 
 /**
  * Returns the state with active = true
  * @param scenes
  */
 const filterActiveScene = (scenes: Scene[]): Scene => {
-    let activeScene = scenes.filter(scene => {
+    return scenes.find(scene => {
         return scene.isActive
-    })
-
-    return activeScene ? activeScene[0] : scenes[0]
+    }) 
 }
 
 /**
@@ -24,8 +25,15 @@ const mapStateToProps = (state: RootState) => {
     }
 }
 
+const mapDispatchToProps= (dispatch: Dispatch<SceneAction>) => {
+    return {
+        action: bindActionCreators(skipToNextScene, dispatch)
+    }
+}
+
 const StoryBox = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Story)
 
 export default StoryBox

@@ -2,6 +2,11 @@ export interface RootState {
     scenes: Scene[]
 }
 
+export interface SceneAction {
+    type: string,
+    scenes: Scene[]
+}
+
 export interface Scene {
     id: number
     background: string;
@@ -10,8 +15,3 @@ export interface Scene {
 }
 
 export interface Frame { }
-
-export interface SceneAction {
-    type: string,
-    scene: Scene 
-}

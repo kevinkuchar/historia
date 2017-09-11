@@ -1,10 +1,16 @@
+// React
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+
+// Redux
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
+
+// Containers
 import StoryBox from './containers/StoryBox';
 
+// Temporary
 import { initState } from './data'
 
 let store = createStore(reducers)
