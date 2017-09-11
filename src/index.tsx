@@ -1,32 +1,15 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import reducers from './reducers'
-
-import { addToScenes } from './actions'
-import { Scene } from './types'
-
 import SceneContainer from './containers/SceneContainer';
 
-let store = createStore(reducers);
+import { initState } from './data'
 
-let scene1: Scene = {
-  "id": 1,
-  "background": "Test One",
-  "frames": [],
-  "isActive": false
-}
+let store = createStore(reducers)
 
-let scene2: Scene = {
-  "id": 2,
-  "background": "Test Two",
-  "frames": [],
-  "isActive": true
-}
-
-store.dispatch(addToScenes(scene1));
-store.dispatch(addToScenes(scene2));
+initState(store)
 
 ReactDOM.render(
     <Provider store={store}>
@@ -34,9 +17,3 @@ ReactDOM.render(
     </Provider>,
     document.getElementById("app")
 );
-
-// class Historia {
-//     constructor() { }
-// }
-
-// (<any>window).historia = new Historia();
