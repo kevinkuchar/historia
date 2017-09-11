@@ -27,7 +27,8 @@ const mapStateToProps = (state: RootState) => {
 
 const mapDispatchToProps= (dispatch: Dispatch<SceneAction>) => {
     return {
-        action: bindActionCreators(skipToNextScene, dispatch)
+        nextScene: bindActionCreators(skipToNextScene, dispatch),
+        nextFrame: bindActionCreators(skipToNextScene, dispatch)
     }
 }
 

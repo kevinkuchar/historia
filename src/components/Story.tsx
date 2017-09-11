@@ -7,7 +7,8 @@ import { Scene } from '../types'
  */
 export interface AppProps {
     scene: Scene,
-    action: any
+    nextScene: () => any,
+    nextFrame: () => any
 }
 
 /**
@@ -15,13 +16,9 @@ export interface AppProps {
  * Types: Props / State
  */
 export default class Story extends React.Component<AppProps, any> {
-    nextScene() {
-        this.props.action()
-    }
-
     render() {
         return (
-            <div onClick={ this.nextScene.bind(this) }>
+            <div onClick={ this.props.nextScene }>
                 { this.props.scene.background }
             </div>
         ) 
