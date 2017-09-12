@@ -3,15 +3,20 @@ export interface RootState {
 }
 
 export interface SceneAction {
-    type: string,
+    type: string
     scenes: Scene[]
 }
 
 export interface Scene {
     id: number
-    background: string;
-    frames: Frame[],
     isActive: boolean
+    background?: string
+    frames: Frame[]
 }
 
-export interface Frame { }
+export interface Frame {
+    id: number
+    isActive: boolean
+    type: string,
+    config: any
+}
