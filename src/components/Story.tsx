@@ -47,7 +47,7 @@ export default class Story extends React.Component<AppProps, any> {
                 // this.props.prevFrame()
                 break;
             case ARROW_RIGHT:
-                // this.props.nextFrame()
+                this.props.nextFrame()
             default: 
                 break
         }

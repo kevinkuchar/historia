@@ -1,4 +1,4 @@
-import { addToScenes } from './actions'
+import { addScenes } from './actions'
 import { Scene } from './types'
 
 let scene1: Scene = {
@@ -71,5 +71,5 @@ let scene3: Scene = {
 }
 
 export function initState(store: any) {
-    store.dispatch(addToScenes([scene1, scene2, scene3]));
+    store.dispatch(addScenes([scene1, scene2, scene3]));
 }

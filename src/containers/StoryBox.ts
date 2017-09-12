@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
-import { RootState, Scene } from '../types'
+import { RootState, Scene, SceneAction } from '../types'
+import { nextScene, nextFrame } from '../actions'
 import Story from '../components/Story'
-import { skipToNextScene } from '../actions'
-import { SceneAction } from '../types'
 
 /**
  * Returns the state with active = true
@@ -27,8 +26,8 @@ const mapStateToProps = (state: RootState) => {
 
 const mapDispatchToProps= (dispatch: Dispatch<SceneAction>) => {
     return {
-        nextScene: bindActionCreators(skipToNextScene, dispatch),
-        nextFrame: bindActionCreators(skipToNextScene, dispatch)
+        nextScene: bindActionCreators(nextScene, dispatch),
+        nextFrame: bindActionCreators(nextFrame, dispatch)
     }
 }
 

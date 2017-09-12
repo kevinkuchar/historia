@@ -1,16 +1,23 @@
 import { Scene } from '../types'
 import * as types from '../constants/ActionTypes'
 
-export const addToScenes = (scenes: Scene[]) => {
+export const addScenes = (scenes: Scene[]) => {
     return {
         type: types.ADD_SCENE,
         scenes
     }
 }
 
-export const skipToNextScene = (scenes: Scene[]) => {
+export const nextScene = (scenes: Scene[]) => {
     return {
         type: types.NEXT_SCENE,
+        scenes
+    }
+}
+
+export const nextFrame = (scenes: Scene[]) => {
+    return {
+        type: types.NEXT_FRAME,
         scenes
     }
 }

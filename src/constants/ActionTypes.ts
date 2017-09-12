@@ -1,2 +1,5 @@
 export const ADD_SCENE: string = 'ADD_SCENE'
+export const PREV_SCENE: string = 'PREV_SCENE'
 export const NEXT_SCENE: string = 'NEXT_SCENE'
+export const PREV_FRAME: string = 'PREV_FRAME'
+export const NEXT_FRAME: string = 'NEXT_FRAME'
