@@ -24,28 +24,15 @@ export interface AppProps {
  */
 export default class Story extends React.Component<AppProps, any> {
 
-    /**
-     * Set document keypress event
-     */
     componentWillMount(){
         document.addEventListener('keydown', this.onKeyPress.bind(this));
     }
 
-    /**
-     * Handle events for arrow keyboard presses
-     * @param event
-     */
     onKeyPress(event: KeyboardEvent) {
         switch(event.keyCode) {
             case ARROW_DOWN:
                 this.props.nextScene()
                 break
-            case ARROW_UP:
-                // this.props.prevScene()
-                break
-            case ARROW_LEFT:
-                // this.props.prevFrame()
-                break;
             case ARROW_RIGHT:
                 this.props.nextFrame()
             default: 
@@ -54,10 +41,6 @@ export default class Story extends React.Component<AppProps, any> {
         
     }
 
-    /**
-     * Iterate over frame array and return component for each active frame
-     * @param frames 
-     */
     renderFrames(frames: Frame[]) {
         return frames.filter((frame: Frame) => {
             return frame.isActive

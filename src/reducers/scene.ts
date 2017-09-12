@@ -5,20 +5,25 @@ function deactivateScene(scene: Scene): Scene {
     return { ...scene, isActive: false }
 }
 
-function setActiveIfId(array: any, id: number): any {
+function setActiveById(array: any, id: number): any {
     return { ...array, isActive: array.id === id }
 }
 
+function setActiveOnId(array: any, id: number): any {
+    let isActive = array.isActive ? array.isActive : array.id === id
+    return { ...array, isActive: isActive }
+}
+
 function getActiveScene(scenes: Scene[]): Scene {
-    return scenes.find((scene: Scene) => {
-        return scene.isActive
-    })
+    return scenes.find((scene: Scene) => scene.isActive)
 }
 
 function getNextActive(array: SceneOrFrame[]): number {
-    return array.find((member: SceneOrFrame) => {
+    let nextActive = array.find((member: SceneOrFrame) => {
         return member.isActive
-    }).id + 1
+    })
+
+    return nextActive ? nextActive.id + 1 : 1;
 }
 
 function activateNextScene(scenes: Scene[]) {
@@ -27,22 +32,22 @@ function activateNextScene(scenes: Scene[]) {
     nextSceneId = nextSceneId > scenes.length ? 1 : nextSceneId
 
     return scenes.map(deactivateScene)
-                 .map(scene => setActiveIfId(scene, nextSceneId))
+                 .map(scene => setActiveById(scene, nextSceneId))
 }
 
 function activateNextFrame(scenes: Scene[]) {
-    let scene: Scene = getActiveScene(scenes)
-    let nextFrameId: number = getNextActive(scene.frames);
+    // let scene: Scene = getActiveScene(scenes)
+    // let nextFrameId: number = getNextActive(scene.frames);
 
-    nextFrameId = nextFrameId > scene.frames.length ? 0 : nextFrameId
+    // nextFrameId = nextFrameId > scene.frames.length ? 0 : nextFrameId
 
-    let frames: Frame[] = scene.frames.map(frame => setActiveIfId(frame, nextFrameId))
-
+    // var frames: Frame[] = scene.frames.map(frame => setActiveOnId(frame, nextFrameId))
+    var frames: Frame[] = []
     return scenes.map(scene => {
-        if (scene.isActive) {
-            scene.frames = frames
+        return {
+            ...scene,
+            frames: frames
         }
-        return scene
     })
 }
 
