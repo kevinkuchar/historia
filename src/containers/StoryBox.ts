@@ -24,7 +24,7 @@ const mapStateToProps = (state: RootState) => {
     }
 }
 
-const mapDispatchToProps= (dispatch: Dispatch<SceneAction>) => {
+const mapDispatchToProps= (dispatch: Dispatch<SceneAction>, test: any) => {
     return {
         nextScene: bindActionCreators(nextScene, dispatch),
         nextFrame: bindActionCreators(nextFrame, dispatch)

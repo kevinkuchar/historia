@@ -6,18 +6,20 @@ let scene1: Scene = {
     frames: [
         {
             id: 1,
+            sceneId: 1,
             isActive: true,
             type: 'TEXT',
             config: {
-                copy: 'One'
+                copy: 'Scene 1 Frame 1'
             }
         },
         {
             id: 2,
+            sceneId: 1,
             isActive: false,
             type: 'TEXT',
             config: {
-                copy: 'Twof'
+                copy: 'Scene 1 Frame 2'
             }
         }
     ],
@@ -29,18 +31,20 @@ let scene2: Scene = {
     frames: [
         {
             id: 1,
-            isActive: false,
+            sceneId: 2,
+            isActive: true,
             type: 'TEXT',
             config: {
-                copy: 'Three'
+                copy: 'Scene 2 Frame 1'
             }
         },
         {
             id: 2,
+            sceneId: 2,
             isActive: false,
             type: 'TEXT',
             config: {
-                copy: 'Four'
+                copy: 'Scene 2 Frame 2'
             }
         }
     ],
@@ -52,18 +56,20 @@ let scene3: Scene = {
     frames: [
         {
             id: 1,
-            isActive: false,
+            sceneId: 3,
+            isActive: true,
             type: 'TEXT',
             config: {
-                copy: 'Awesome story'
+                copy: 'Scene 3 Frame 1'
             }
         },
         {
             id: 2,
+            sceneId: 3,
             isActive: false,
             type: 'TEXT',
             config: {
-                copy: 'Cool story bro'
+                copy: 'Scene 3 Frame 2'
             }
         }
     ],

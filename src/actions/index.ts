@@ -8,10 +8,9 @@ export const addScenes = (scenes: Scene[]) => {
     }
 }
 
-export const nextScene = (scenes: Scene[]) => {
+export const nextScene = (Scene: Scene) => {
     return {
-        type: types.NEXT_SCENE,
-        scenes
+        type: types.NEXT_SCENE
     }
 }
 

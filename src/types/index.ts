@@ -7,17 +7,16 @@ export interface SceneAction {
     scenes: Scene[]
 }
 
-export interface SceneOrFrame {
+export interface Scene {
     id: number
     isActive: boolean
-}
-
-export interface Scene extends SceneOrFrame {
-    background?: string
     frames: Frame[]
 }
 
-export interface Frame extends SceneOrFrame {
+export interface Frame {
+    id: number
+    isActive: boolean
+    sceneId: number
     type: string,
     config: any
 }
