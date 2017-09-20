@@ -1,13 +1,10 @@
 import * as React from "react"
 
-/**
- * Component Properties
- */
-export interface TextProps {
+type TextProps = {
     config: Config
 }
 
-interface Config {
+type Config = {
     copy: string
 }
 
@@ -17,9 +14,11 @@ interface Config {
  */
 export default class Text extends React.Component<TextProps, any> {
     render() {
+        let { config } = this.props
+
         return (
             <div>
-                { this.props.config.copy }
+                { config.copy }
             </div>
         ) 
     }

@@ -1,45 +1,15 @@
-import { Scene, SceneAction, Frame } from '../types'
-import * as types from '../constants/ActionTypes'
+import { ADD_SCENE } from '../types/ActionTypes';
+import { Scene, SceneAction } from '../types/index';
 
-const deactivateScene = (scene: Scene): Scene => {
-    return { ...scene, isActive: false }
-}
+const INITIAL_STATE: Scene[] = [];
 
-const updateActiveById = (scene: Scene, id: number): Scene => {
-    return { ...scene, isActive: scene.id === id }
-}
-
-const getNextActiveId = (array: Scene[]): number => {
-    let nextActive = array.find((member: Scene) => {
-        return member.isActive
-    })
-
-    return nextActive ? nextActive.id + 1 : 1;
-}
-
-const activateNextScene = (scenes: Scene[]) => {
-    let nextSceneId = getNextActiveId(scenes)
-    
-    nextSceneId = nextSceneId > scenes.length ? 1 : nextSceneId
-
-    return scenes.map(deactivateScene)
-                 .map(scene => updateActiveById(scene, nextSceneId))
-}
-
-const SceneReducer = (state: Scene[] = [], action: SceneAction) => {
+const sceneReducer = (state: Scene[] = INITIAL_STATE, action: SceneAction) => {
     switch (action.type) {
-        case types.ADD_SCENE:
+        case ADD_SCENE:
             return state.concat(action.scenes)
-
-        case types.NEXT_SCENE:
-            return activateNextScene(state)
-
-        case types.NEXT_FRAME:
-            // return activateNextFrame(state)
-
         default:
             return state
     }
 }
   
-export default SceneReducer
+export default sceneReducer

@@ -1,4 +1,4 @@
-import { addScenes } from './actions'
+import { addScenes, nextScene } from './actions'
 import { Scene } from './types'
 
 let scene1: Scene = {
@@ -60,7 +60,7 @@ let scene3: Scene = {
             isActive: true,
             type: 'TEXT',
             config: {
-                copy: 'Scene 3 Frame 1'
+                copy: 'Scene 4 Frame 1'
             }
         },
         {
@@ -78,4 +78,5 @@ let scene3: Scene = {
 
 export function initState(store: any) {
     store.dispatch(addScenes([scene1, scene2, scene3]));
+    // store.dispatch(nextScene(scene1))
 }

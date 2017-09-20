@@ -3,31 +3,24 @@ import { bindActionCreators, Dispatch } from 'redux'
 import { RootState, Scene, SceneAction } from '../types'
 import { nextScene, nextFrame } from '../actions'
 import Story from '../components/Story'
+import { getNextIndex } from '../utils/getNextIndex';
 
-/**
- * Returns the state with active = true
- * @param scenes
- */
-const filterActiveScene = (scenes: Scene[]): Scene => {
-    return scenes.find(scene => {
-        return scene.isActive
-    }) 
+const getNextScene = (scenes: Scene[], activeScene: Scene) => {
+    return scenes[getNextIndex(scenes, activeScene)]
 }
 
-/**
- * Maps scene to props
- * @param state 
- */
 const mapStateToProps = (state: RootState) => {
     return {
-        scene: filterActiveScene(state.scenes)
+        activeScene: state.activeScene,
+        nextScene: getNextScene(state.scenes, state.activeScene)
     }
 }
 
-const mapDispatchToProps= (dispatch: Dispatch<SceneAction>, test: any) => {
+const mapDispatchToProps = (dispatch: Dispatch<SceneAction>) => {
     return {
-        nextScene: bindActionCreators(nextScene, dispatch),
-        nextFrame: bindActionCreators(nextFrame, dispatch)
+        nextSceneHandler: (scene: Scene) => {
+            dispatch(nextScene(scene))
+        }
     }
 }
 

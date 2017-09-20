@@ -1,8 +1,7 @@
 import * as React from "react"
-import { connect } from 'react-redux'
-import { Scene, Frame } from '../types'
-import * as Types from '../constants/FrameTypes'
 import Text from './Text'
+import { TEXT } from "../types/FrameTypes";
+import { Scene, Frame } from "../types/index";
 
 const ARROW_DOWN = 40
 const ARROW_UP = 38
@@ -12,29 +11,29 @@ const ARROW_RIGHT = 39
 /**
  * Component Properties
  */
-export interface AppProps {
-    scene: Scene,
-    nextScene: () => any,
-    nextFrame: () => any
+type StoryProps = {
+    activeScene: Scene,
+    nextScene: Scene,
+    nextSceneHandler: (scene: Scene) => any
 }
 
 /**
  * Main Story Component
  * Types: Props / State
  */
-export default class Story extends React.Component<AppProps, any> {
-
+export default class Story extends React.Component<StoryProps, any> {
     componentWillMount(){
         document.addEventListener('keydown', this.onKeyPress.bind(this));
     }
 
     onKeyPress(event: KeyboardEvent) {
-        switch(event.keyCode) {
+        let { nextSceneHandler, nextScene } = this.props;
+        switch (event.keyCode) {
             case ARROW_DOWN:
-                this.props.nextScene()
+                nextSceneHandler(nextScene)
                 break
             case ARROW_RIGHT:
-                this.props.nextFrame()
+                
             default: 
                 break
         }
@@ -42,21 +41,21 @@ export default class Story extends React.Component<AppProps, any> {
     }
 
     renderFrames(frames: Frame[]) {
-        return frames.filter((frame: Frame) => {
-            return frame.isActive
-        }).map((frame: Frame) => {
-            switch (frame.type) {
-                case Types.TEXT:
-                    return <Text key={ frame.id } config={ frame.config } />
-
-            }
-        })        
+        return frames
+                .filter((frame: Frame) => {
+                    return frame.isActive
+                }).map((frame: Frame) => {
+                    switch (frame.type) {
+                        case TEXT:
+                            return <Text key={ frame.id } config={ frame.config } />
+                        }
+                })
     }
 
     render() {
         return (
             <div>
-                { this.renderFrames(this.props.scene.frames) }
+                { this.renderFrames(this.props.activeScene.frames) }
             </div>
         ) 
     }
