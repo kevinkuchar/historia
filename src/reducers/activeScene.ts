@@ -1,5 +1,5 @@
 import { SceneAction, Scene } from '../types'
-import { NEXT_SCENE } from '../types/ActionTypes';
+import { NEXT_SCENE, NEXT_FRAME } from '../types/ActionTypes';
 
 const INITIAL_STATE: Scene = {
     id: 0,
@@ -20,9 +20,12 @@ const INITIAL_STATE: Scene = {
 const activeSceneReducer = (state: Scene = INITIAL_STATE, action: SceneAction) => {
     switch (action.type) {
         case NEXT_SCENE:
-            return action.scene
+            return action.scene;
+        case NEXT_FRAME:
+            console.log(state);
+            return state;
         default:
-            return state
+            return state;
     }
 }
   

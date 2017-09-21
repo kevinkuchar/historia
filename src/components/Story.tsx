@@ -14,7 +14,8 @@ const ARROW_RIGHT = 39
 type StoryProps = {
     activeScene: Scene,
     nextScene: Scene,
-    nextSceneHandler: (scene: Scene) => any
+    nextSceneHandler: (scene: Scene) => any,
+    nextFrameHandler: () => any
 }
 
 /**
@@ -27,13 +28,13 @@ export default class Story extends React.Component<StoryProps, any> {
     }
 
     onKeyPress(event: KeyboardEvent) {
-        let { nextSceneHandler, nextScene } = this.props;
+        let { nextSceneHandler, nextFrameHandler, nextScene } = this.props;
         switch (event.keyCode) {
             case ARROW_DOWN:
-                nextSceneHandler(nextScene)
+                nextSceneHandler(nextScene);
                 break
             case ARROW_RIGHT:
-                
+                nextFrameHandler();
             default: 
                 break
         }

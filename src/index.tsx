@@ -1,21 +1,15 @@
-// React
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
-// Redux
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import reducers from './reducers'
-
-// Containers
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './reducers';
 import StoryBox from './containers/StoryBox';
-
 // Temporary
-import { initState } from './data'
+import { initState } from './data';
 
-let store = createStore(reducers)
+let store = createStore(reducers);
 
-initState(store)
+initState(store);
 
 ReactDOM.render(
     <Provider store={store}>

@@ -1,5 +1,5 @@
-import { Scene } from '../types'
-import * as types from '../types/ActionTypes'
+import { Scene } from '../types';
+import * as types from '../types/ActionTypes';
 
 export const addScenes = (scenes: Scene[]) => {
     return {
@@ -15,7 +15,7 @@ export const nextScene = (scene: Scene) => {
     }
 }
 
-export const nextFrame = (Test: String) => {
+export const nextFrame = () => {
     return {
         type: types.NEXT_FRAME
     }

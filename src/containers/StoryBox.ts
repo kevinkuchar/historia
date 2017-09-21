@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch: Dispatch<SceneAction>) => {
     return {
         nextSceneHandler: (scene: Scene) => {
             dispatch(nextScene(scene))
+        },
+        nextFrameHandler: () => {
+            dispatch(nextFrame())
         }
     }
 }
