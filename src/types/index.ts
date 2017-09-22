@@ -14,7 +14,6 @@ export type Scene = {
 export type Frame = {
     id: number
     isActive: boolean
-    sceneId: number
     type: string,
     config: any
 }
@@ -26,12 +25,12 @@ export type AddSceneAction = {
 
 export type NextSceneAction = {
     type: ACTIONS.NEXT_SCENE,
-    scene: Scene
+    nextScene: Scene
 }
 
 export type NextFrameAction = {
     type: ACTIONS.NEXT_FRAME,
-    scene: Scene
+    nextScene: Scene
 }
 
 export type SceneAction =

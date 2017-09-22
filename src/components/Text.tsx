@@ -18,7 +18,7 @@ export default class Text extends React.Component<TextProps, any> {
 
         return (
             <div>
-                { config.copy }
+                <p>{ config.copy }</p>
             </div>
         ) 
     }

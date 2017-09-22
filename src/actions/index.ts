@@ -8,15 +8,16 @@ export const addScenes = (scenes: Scene[]) => {
     }
 }
 
-export const nextScene = (scene: Scene) => {
+export const nextScene = (nextScene: Scene) => {
     return {
         type: types.NEXT_SCENE,
-        scene
+        nextScene
     }
 }
 
-export const nextFrame = () => {
+export const nextFrame = (nextScene: Scene) => {
     return {
-        type: types.NEXT_FRAME
+        type: types.NEXT_FRAME,
+        nextScene
     }
 }

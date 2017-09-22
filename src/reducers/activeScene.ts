@@ -7,7 +7,6 @@ const INITIAL_STATE: Scene = {
     frames: [
         {
             id: 0,
-            sceneId: 0,
             isActive: true,
             type: 'TEXT',
             config: {
@@ -20,10 +19,22 @@ const INITIAL_STATE: Scene = {
 const activeSceneReducer = (state: Scene = INITIAL_STATE, action: SceneAction) => {
     switch (action.type) {
         case NEXT_SCENE:
-            return action.scene;
+            return action.nextScene;
         case NEXT_FRAME:
-            console.log(state);
-            return state;
+            let isLastFrame: Boolean = state.frames.every(frame => {
+                return frame.isActive
+            });
+            
+            if (isLastFrame) return action.nextScene;
+
+            return {
+                ...state,
+                frames: state.frames.map((frame, index, array) => {
+                    return {
+                        ...frame,
+                        isActive: (array[index - 1] && array[index - 1].isActive || frame.isActive) ? true : false }
+                })
+            }
         default:
             return state;
     }

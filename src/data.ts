@@ -6,20 +6,35 @@ let scene1: Scene = {
     frames: [
         {
             id: 1,
-            sceneId: 1,
             isActive: true,
             type: 'TEXT',
             config: {
-                copy: 'Scene 1 Frame 1'
+                copy: 'Welcome to Historia'
             }
         },
         {
             id: 2,
-            sceneId: 1,
             isActive: false,
             type: 'TEXT',
             config: {
-                copy: 'Scene 1 Frame 2'
+                copy: 'Where diggity jiggity is liggity.'
+            }
+        },
+        {
+            id: 3,
+            isActive: false,
+            type: 'TEXT',
+            config: {
+                copy: 'And Biggity is Stiggity.'
+            }
+        }
+        ,
+        {
+            id: 4,
+            isActive: false,
+            type: 'TEXT',
+            config: {
+                copy: 'Created by Tacoman.'
             }
         }
     ],
@@ -31,7 +46,6 @@ let scene2: Scene = {
     frames: [
         {
             id: 1,
-            sceneId: 2,
             isActive: true,
             type: 'TEXT',
             config: {
@@ -40,7 +54,6 @@ let scene2: Scene = {
         },
         {
             id: 2,
-            sceneId: 2,
             isActive: false,
             type: 'TEXT',
             config: {
@@ -56,16 +69,14 @@ let scene3: Scene = {
     frames: [
         {
             id: 1,
-            sceneId: 3,
             isActive: true,
             type: 'TEXT',
             config: {
-                copy: 'Scene 4 Frame 1'
+                copy: 'Scene 3 Frame 1'
             }
         },
         {
             id: 2,
-            sceneId: 3,
             isActive: false,
             type: 'TEXT',
             config: {

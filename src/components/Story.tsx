@@ -15,7 +15,7 @@ type StoryProps = {
     activeScene: Scene,
     nextScene: Scene,
     nextSceneHandler: (scene: Scene) => any,
-    nextFrameHandler: () => any
+    nextFrameHandler: (scene: Scene) => any
 }
 
 /**
@@ -34,7 +34,7 @@ export default class Story extends React.Component<StoryProps, any> {
                 nextSceneHandler(nextScene);
                 break
             case ARROW_RIGHT:
-                nextFrameHandler();
+                nextFrameHandler(nextScene);
             default: 
                 break
         }
